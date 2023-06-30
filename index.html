@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .total-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 50px;
+            background: rgb(112, 17, 115);
+            background: linear-gradient(101deg, rgba(112, 17, 115, 1) 9%, rgba(9, 9, 121, 1) 68%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        .text {
+            font-size: 70px;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .spin-pointer {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgb(0, 0, 0);
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: gray;
+            letter-spacing: 0.1em;
+            border: 4px solid black;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .container .spin-pointer::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            top: -28px;
+            background: rgb(0, 0, 0);
+            clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+        }
+
+        .container .wheel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px #333, 0 0 0 15px white, 0 0 0 18px black;
+            overflow: hidden;
+            transition: transform 5s ease-in-out;
+        }
+
+        .container .wheel .number {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: var(--clr);
+            transform-origin: bottom right;
+            transform: rotate(calc(45deg * var(--i)));
+            clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .container .wheel .number span {
+            position: relative;
+            transform: rotate(45deg);
+            font-size: 2em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .container .wheel .number span ::after {
+            position: absolute;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        button {
+            height: 5em;
+            width: 10em;
+            font-size: 30px;
+            border: none;
+            font-weight: bolder;
+            border-radius: 8px;
+            background: rgb(163, 180, 58);
+            background: radial-gradient(circle, rgba(163, 180, 58, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 80vw;
+                height: 80vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="total-container">
+        <div class="text">Lucky-draw Spin</div>
+        <div class="container">
+            <div class="spin-pointer"></div>
+            <div class="wheel">
+                <div class="number" style="--i:1;--clr: #af4093; ">
+                    <span>Rs.100/-</span>
+                </div>
+                <div class="number" style="--i:2;--clr: #2394d1; ">
+                    <span>Rs.1/-</span>
+                </div>
+                <div class="number" style="--i:3;--clr: #46e42a; ">
+                    <span>Rs.10/-</span>
+                </div>
+                <div class="number" style="--i:4;--clr: #dada36; ">
+                    <span>Rs.23/-</span>
+                </div>
+                <div class="number" style="--i:5;--clr: #a115bd; ">
+                    <span>0</span>
+                </div>
+                <div class="number" style="--i:6;--clr: #f32d2d; ">
+                    <span>Rs.61/-</span>
+                </div>
+                <div class="number" style="--i:7;--clr: #36c7d2; ">
+                    <span>Rs.72/-</span>
+                </div>
+                <div class="number" style="--i:8;--clr: #d37435; ">
+                    <span>Rs.89/-</span>
+                </div>
+            </div>
+        </div>
+        <div class="spin-btn">
+            <button>Click Here for Spin</button>
+        </div>
+    </div>
+
+    <script>
+        
+    </script>
+
+</body>
+
+</html>
